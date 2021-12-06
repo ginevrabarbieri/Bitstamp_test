@@ -1,8 +1,14 @@
-from bitstamp import get_price
+from get_value import get_data
+from get_value import get_price
+from get_value import get_volume
+from get_value import get_price
+from get_value import get_change
 
-eur=get_price("btceur")
-print("Last bitcoin price in EUR is: {}".format(eur))
-dollar=get_price("btcusd")
-print("Last bitcoin price in $ is: {}".format(dollar))
+import pandas as pd
+import argparse
 
-
+parser = argparse.ArgumentParser()
+parser.add_argument("crypto")
+parser.add_argument("currency")
+parser.add_argument("-sd","--specific_data")
+print(args.crypto, args.currency, args.specific_data)
