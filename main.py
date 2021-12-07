@@ -25,7 +25,7 @@ import pandas as pd
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("crypto")
-parser.add_argument("currency")
-parser.add_argument("-sd","--specific_data")
+parser.add_argument("crypto", help="Specify the cryptocurrency code")
+parser.add_argument("currency", help="Specify the currency code")
+parser.add_argument("-sd","--specific_data", help="Specify which information you want to know")
 print(args.crypto, args.currency, args.specific_data)
