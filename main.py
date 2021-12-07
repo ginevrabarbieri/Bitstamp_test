@@ -27,9 +27,17 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("crypto", help="Specify the cryptocurrency code")
+crypto_list = ["btc", "eth", "gbp", "ada" , "xrp", "uni", "ltc", "link", "matic", "xlm", 
+                "ftt", "bch", "aave", "axs", "algo", "comp", "snx", "hbar", "chz", "cel", 
+                "enj", "bat", "mkr", "zrx", "audio", "skl", "yfi" , "sushi", "alpha", "storj", 
+                "sxp", "grt", "uma", "omg", "knc", "crv", "sand", "fet", "rgt", "slp", "eurt", 
+                "usdt", "usdc", "dai", "pax", "eth2", "gusd"]
+
+parser.add_argument("crypto", help="Specify the cryptocurrency code", 
+					choices = crypto_list)
 parser.add_argument("currency", help="Specify the currency code")
-parser.add_argument("-sd","--specific_data", help="Specify which information you want to know")
+parser.add_argument("-sd","--specific_data", help="Specify which information you want to know",
+					 choices=["price", "volume", "change", "chart"])
 print(args.crypto, args.currency, args.specific_data)
 
 get_price_chart("btcusd")
