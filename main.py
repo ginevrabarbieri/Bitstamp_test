@@ -38,6 +38,21 @@ parser.add_argument("crypto", help="Specify the cryptocurrency code",
 parser.add_argument("currency", help="Specify the currency code")
 parser.add_argument("-sd","--specific_data", help="Specify which information you want to know",
 			choices=["price", "volume", "change", "chart"])
+
+args = parser.parse_args()
 print(args.crypto, args.currency, args.specific_data)
 
-get_price_chart("btcusd")
+value = args.crypto + args.currency
+get_data(value)
+
+if args.specific_data == "price":
+    print("{} value in {} is {}".format(args.crypto, args.currency, get_price()))
+elif args.specific_data == "volume":
+    print("{} 24h volume is {}".format(args.crypto, get_volume()))
+elif args.specific_data == "change":
+    print("{} daily change is {} %".format(args.crypto, get_change()))
+else:
+    get_price_chart(value)
+
+
+#get_price_chart("btcusd") #to delete 
