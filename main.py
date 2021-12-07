@@ -3,6 +3,7 @@ from get_value import get_price
 from get_value import get_volume
 from get_value import get_price
 from get_value import get_change
+from get_graph import get_price_chart
 
 import pandas as pd
 import argparse
@@ -13,3 +14,5 @@ parser.add_argument("currency")
 parser.add_argument("-sd","--specific_data")
 args = parser.parse_args()
 print(args.crypto, args.currency, args.specific_data)
+
+get_price_chart("btcusd")
