@@ -1,3 +1,20 @@
+'''
+This is the main file where we created
+the interaction between users and the
+bitstamp API.
+We used argparse module to configure
+positional and optional arguments.
+
+There are two positional argument:
+crypto and currency which reprepsent
+respectively cryptocurrency and currency
+selected by the user
+
+Additionally, the user can specify 
+which information to display, such as
+last price, daily change, volume or
+hourly chart
+'''
 from get_value import get_data
 from get_value import get_price
 from get_value import get_volume
