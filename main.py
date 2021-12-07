@@ -34,10 +34,10 @@ crypto_list = ["btc", "eth", "gbp", "ada" , "xrp", "uni", "ltc", "link", "matic"
                 "usdt", "usdc", "dai", "pax", "eth2", "gusd"]
 
 parser.add_argument("crypto", help="Specify the cryptocurrency code", 
-					choices = crypto_list)
+			choices = crypto_list)
 parser.add_argument("currency", help="Specify the currency code")
 parser.add_argument("-sd","--specific_data", help="Specify which information you want to know",
-					 choices=["price", "volume", "change", "chart"])
+			choices=["price", "volume", "change", "chart"])
 print(args.crypto, args.currency, args.specific_data)
 
 get_price_chart("btcusd")
