@@ -4,10 +4,17 @@ import pandas as pd
 
 bitstamp_URL = 'https://www.bitstamp.net/api/v2/ticker/%s/'
 
+"""We generate a csv file with the bitstamp API by using
+    the values inputted by the user"""
+
 def get_data(value):
+    #request data from API
 	r = requests.get(bitstamp_URL % value)
+    #create a json file that store API data
 	file_json = json.loads(r.text)
+    #convert the json file to a dataframe
 	df = pd.DataFrame(file_json, index=[0])
+    #create a csv file that contains API data
 	df.to_csv (r'CryptoTable.csv', index = False, header=True)
 
 '''This function create the variable last_price (which is the last price of the cryptocurrency selected) 
