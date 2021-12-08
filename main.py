@@ -15,6 +15,7 @@ which information to display, such as
 last price, daily change, volume or
 hourly chart
 '''
+
 from get_value import get_data
 from get_value import get_price
 from get_value import get_volume
@@ -53,6 +54,3 @@ elif args.specific_data == "change":
     print("{} daily change is {} %".format(args.crypto, get_change()))
 else:
     get_price_chart(value)
-
-
-#get_price_chart("btcusd") #to delete 
