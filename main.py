@@ -42,8 +42,18 @@ parser.add_argument("-sd","--specific_data", help="Specify which information you
 
 args = parser.parse_args()
 
-value = args.crypto + args.currency
+# By default, the chosen currency is usd
+value = args.crypto + "usd"
 get_data(value)
+
+"""
+If the currency inputted by the user is not usd we created a function to 
+convert values (last and open) in order to return the value with the
+correct currency
+"""
+
+if args.currency != "usd":
+    convert_table(args.currency)
 
 if args.specific_data == "price":
     print("{} value in {} is {}".format(args.crypto, args.currency, get_price()))
