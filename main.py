@@ -41,7 +41,6 @@ parser.add_argument("-sd","--specific_data", help="Specify which information you
 			choices=["price", "volume", "change", "chart"])
 
 args = parser.parse_args()
-print(args.crypto, args.currency, args.specific_data)
 
 value = args.crypto + args.currency
 get_data(value)
@@ -52,5 +51,11 @@ elif args.specific_data == "volume":
     print("{} 24h volume is {}".format(args.crypto, get_volume()))
 elif args.specific_data == "change":
     print("{} daily change is {} %".format(args.crypto, get_change()))
+elif args.specific_data == "chart":
+    get_price_chart(value)
 else:
+    print("You have selected to see {} cryptocurrency in {}".format(args.crypto, args.currency))
+    print("{} last price in {} is {}".format(args.crypto, args.currency, get_price()))
+    print("{} 24h volume is {}".format(args.crypto, get_volume()))
+    print("{} daily change is {} %".format(args.crypto, get_change()))
     get_price_chart(value)
