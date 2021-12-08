@@ -4,3 +4,9 @@ def converter(price, default_currency, output_currency):
     output_currency = output_currency.upper()
     converted_price = c.convert(price, default_currency, output_currency)
     return converted_price
+
+def convert_table(output_currency):
+    df = pd.read_csv('CryptoTable.csv')
+    df['last'] = converter(df._get_value(0, 'last'), "usd", output_currency)
+    df['open'] = converter(df._get_value(0, 'open'), "usd", output_currency)
+    df.to_csv (r'CryptoTable.csv', index = False, header=True)
