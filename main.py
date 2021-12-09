@@ -16,12 +16,9 @@ last price, daily change, volume or
 hourly chart
 '''
 
-from get_value import get_data
-from get_value import get_price
-from get_value import get_volume
-from get_value import get_price
-from get_value import get_change
+from get_value import get_data, get_price, get_volume, get_change
 from get_graph import get_price_chart
+from Converter import converter, convert_table
 
 import pandas as pd
 import argparse
