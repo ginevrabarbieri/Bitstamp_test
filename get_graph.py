@@ -14,15 +14,15 @@ def get_price_chart(value):
     df.to_csv (r"Price.csv", index = False, header=True)
     price_df = pd.read_csv("Price.csv")
     
-    """The dataframe expresses data and time using timestamp. We want to convert it in simply date and 
-    time and put them in different columns, to better manage data."""
+    """The dataframe expresses data and time using timestamp. We want to convert it and obtain two different 
+    columns for date and time, to better manage data."""
     dates = []
     for date in price_df["date"]:
         date = int(date)  
         date = datetime.utcfromtimestamp(date).strftime("%d-%m-%Y %H:%M:%S")
         dates.append(date)
     price_df["Date and time"] = dates
-    price_df["Date"], price_df["Time"] = price_df["Date and time"].str.split(" ", 1).str
+    price_df[['Date', 'Time']] = price_df['Date and time'].str.split(' ', n=1, expand=True)
     price_df = price_df.drop(["Date and time", "date"], axis = 1)
     
     """Since the graph will display an entire hour of variation of prices, minute by minute, we want to
