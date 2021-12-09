@@ -1,3 +1,6 @@
+import pandas as pd
+from currency_converter import CurrencyConverter
+
 def converter(price, default_currency, output_currency):
     c = CurrencyConverter()
     default_currency = default_currency.upper()
