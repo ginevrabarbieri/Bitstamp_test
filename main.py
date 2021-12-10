@@ -18,7 +18,7 @@ hourly chart
 
 from get_value import get_data, get_price, get_volume, get_change
 from get_graph import get_file, date_adjustment, get_price_chart
-from converter import curr_converter, convert_table
+from Converter import curr_converter, convert_table
 
 import pandas as pd
 import argparse
