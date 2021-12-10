@@ -17,8 +17,8 @@ hourly chart
 '''
 
 from get_value import get_data, get_price, get_volume, get_change
-from get_graph import get_price_chart
-from Converter import converter, convert_table
+from get_graph import get_file, date_adjustment, get_price_chart
+from converter import curr_converter, convert_table
 
 import pandas as pd
 import argparse
@@ -59,10 +59,10 @@ elif args.specific_data == "volume":
 elif args.specific_data == "change":
     print("{} daily change is {} %".format(args.crypto, get_change()))
 elif args.specific_data == "chart":
-    get_price_chart(value)
+    get_price_chart(date_adjustment(get_file(value)), value)
 else:
     print("You have selected to see {} cryptocurrency in {}".format(args.crypto, args.currency))
     print("{} last price in {} is {}".format(args.crypto, args.currency, get_price()))
     print("{} 24h volume is {}".format(args.crypto, get_volume()))
     print("{} daily change is {} %".format(args.crypto, get_change()))
-    get_price_chart(value)
+    get_price_chart(date_adjustment(get_file(value)), value)
